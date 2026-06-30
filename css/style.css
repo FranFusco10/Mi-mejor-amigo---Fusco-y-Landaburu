@@ -1,0 +1,250 @@
+/* ============================================
+   style.css - SOLO CELULARES
+   ============================================ */
+
+:root {
+  --naranja: #FF7A1E;
+  --celeste: #A9DDF3;
+  --texto-oscuro: #222222;
+  --blanco: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ============================================
+   CONTENEDOR GENERAL
+   ============================================ */
+
+main.welcome-page {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--celeste);
+}
+
+/* ============================================
+   SECCIÓN SUPERIOR: LOGO + TÍTULO
+   ============================================ */
+
+header.top-section {
+  position: absolute;
+  top: clamp(120px, 14.5vh, 145px);
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  background: transparent;
+  text-align: center;
+  padding: 0 5vw;
+}
+
+/* LOGO */
+
+figure.icon-circle {
+  margin: 0 auto clamp(12px, 1.8vh, 16px);
+  line-height: 0;
+}
+
+figure.icon-circle img {
+  width: clamp(80px, 25vw, 98px);
+  height: auto;
+}
+
+/* TÍTULO */
+
+h1.brand-title {
+  font-size: clamp(3rem, 12vw, 5rem);
+  font-weight: 800;
+  color: var(--texto-oscuro);
+  line-height: 1.08;
+  letter-spacing: 0.5px;
+}
+
+span.brand-highlight {
+  color: var(--naranja);
+}
+
+/* ============================================
+   FONDO CELESTE CON HUESITOS
+   ============================================ */
+
+section.bottom-section {
+  position: absolute;
+  inset: 0;
+  background-image: url('../img/fondo-huesos.png');
+  background-color: var(--celeste);
+  background-size: cover;
+  background-position: center bottom;
+  overflow: hidden;
+}
+
+/* Esto evita que aparezca la franja celeste arriba */
+
+section.bottom-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 38vh;
+  background: var(--blanco);
+  z-index: 0;
+}
+
+/* ============================================
+   CÍRCULO / FORMA BLANCA SUPERIOR
+   ============================================ */
+
+span.white-blob {
+  position: absolute;
+  top: clamp(-240px, -28vh, -200px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220%;
+  height: clamp(610px, 78vh, 700px);
+  background: var(--blanco);
+  border-radius: 0 0 50% 50% / 0 0 32% 32%;
+  z-index: 1;
+  display: block;
+}
+
+/* ============================================
+   PERRO
+   ============================================ */
+
+img.dog-img {
+  position: absolute;
+  bottom: -2vh;
+  left: 52%;
+  transform: translateX(-50%);
+  width: 175%;
+  height: auto;
+  z-index: 2;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+nav.welcome-buttons {
+  position: absolute;
+  bottom: 7vh;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  padding: 0 12vw;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+a.btn-welcome {
+  display: block;
+  background: var(--blanco);
+  color: var(--naranja);
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  letter-spacing: 0.5px;
+  padding: 12px 0;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+a.btn-welcome:active {
+  transform: scale(0.97);
+}
+
+/* ============================================
+   PANTALLAS MÁS BAJAS
+   Se achican elementos, pero NO se mueven de lugar
+   ============================================ */
+
+@media (max-height: 760px) {
+  figure.icon-circle img {
+    width: clamp(64px, 20vw, 82px);
+  }
+
+  h1.brand-title {
+    font-size: clamp(2.45rem, 10.5vw, 3.6rem);
+  }
+
+  img.dog-img {
+    width: 162%;
+  }
+}
+
+@media (max-height: 700px) {
+  figure.icon-circle img {
+    width: clamp(58px, 18vw, 74px);
+  }
+
+  h1.brand-title {
+    font-size: clamp(2.15rem, 9.4vw, 3rem);
+  }
+
+  img.dog-img {
+    width: 150%;
+  }
+
+  a.btn-welcome {
+    padding: 10px 0;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-height: 640px) {
+  figure.icon-circle img {
+    width: clamp(52px, 16vw, 66px);
+  }
+
+  h1.brand-title {
+    font-size: clamp(1.95rem, 8.6vw, 2.6rem);
+  }
+
+  img.dog-img {
+    width: 142%;
+  }
+
+  nav.welcome-buttons {
+    gap: 10px;
+  }
+
+  a.btn-welcome {
+    padding: 9px 0;
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   CELULARES MUY ANGOSTOS
+   ============================================ */
+
+@media (max-width: 359px) {
+  figure.icon-circle img {
+    width: clamp(54px, 17vw, 66px);
+  }
+
+  h1.brand-title {
+    font-size: clamp(2rem, 9vw, 2.5rem);
+  }
+
+  img.dog-img {
+    width: 150%;
+    left: 52%;
+  }
+
+  nav.welcome-buttons {
+    padding: 0 11vw;
+  }
+}
